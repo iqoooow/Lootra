@@ -1,0 +1,229 @@
+{
+  "nav": {
+    "home": "Bosh sahifa",
+    "marketplace": "Akkaunt bozori",
+    "ucStore": "UC Do'kon",
+    "blog": "Yangiliklar",
+    "guides": "Qo'llanmalar",
+    "skins": "Skinlar",
+    "leaderboard": "Reyting",
+    "giveaways": "Sovrinlar",
+    "login": "Kirish",
+    "register": "Ro'yxatdan o'tish",
+    "profile": "Profil",
+    "dashboard": "Boshqaruv paneli",
+    "logout": "Chiqish",
+    "admin": "Admin panel",
+    "support": "Yordam",
+    "more": "Ko'proq"
+  },
+  "home": {
+    "hero": {
+      "title": "PUBG Mobile Akkaunt",
+      "titleHighlight": "Bozori",
+      "subtitle": "O'zbekistondagi eng ishonchli PUBG Mobile akkaunt va UC savdo platformasi",
+      "cta_primary": "Akkauntlarni ko'rish",
+      "cta_secondary": "UC Sotib olish",
+      "stats": {
+        "accounts": "Akkauntlar",
+        "users": "Foydalanuvchilar",
+        "trades": "Muvaffaqiyatli savdolar",
+        "sellers": "Tasdiqlangan sotuvchilar"
+      }
+    },
+    "featured_accounts": "Tanlangan akkauntlar",
+    "uc_promo": "UC Takliflar",
+    "latest_blog": "So'nggi yangiliklar",
+    "popular_guides": "Mashhur qo'llanmalar",
+    "how_it_works": "Qanday ishlaydi?",
+    "why_us": "Nima uchun biz?"
+  },
+  "marketplace": {
+    "title": "PUBG Akkaunt Bozori",
+    "subtitle": "pubg akkaunt sotib olish — eng past narxda eng yaxshi akkauntlar",
+    "filters": {
+      "rank": "Rang",
+      "min_price": "Min narx",
+      "max_price": "Max narx",
+      "level": "Daraja",
+      "server": "Server",
+      "sort": "Saralash",
+      "reset": "Tozalash",
+      "apply": "Qo'llash"
+    },
+    "sort_options": {
+      "newest": "Eng yangi",
+      "price_asc": "Narx: arzondan qimmatga",
+      "price_desc": "Narx: qimmatdan arzonga",
+      "rank_desc": "Eng yuqori rang",
+      "popular": "Mashhur"
+    },
+    "no_results": "Akkaunt topilmadi",
+    "load_more": "Ko'proq yuklash",
+    "instant_buy": "Darhol sotib olish",
+    "make_offer": "Taklif qilish",
+    "add_favorite": "Sevimlilar",
+    "view_details": "Batafsil"
+  },
+  "account": {
+    "rank": "Rang",
+    "level": "Daraja",
+    "uc_balance": "UC Balansi",
+    "skins": "Skinlar",
+    "legendaries": "Legendar narsalar",
+    "server": "Server",
+    "seller": "Sotuvchi",
+    "seller_rating": "Sotuvchi reytingi",
+    "verified": "Tasdiqlangan",
+    "buy_now": "Hozir sotib olish",
+    "contact_seller": "Sotuvchi bilan bog'lanish",
+    "report": "Shikoyat qilish",
+    "share": "Ulashish",
+    "similar": "O'xshash akkauntlar"
+  },
+  "uc_store": {
+    "title": "UC Do'kon",
+    "subtitle": "arzon pubg uc — tezkor yetkazib berish",
+    "your_pubg_id": "PUBG ID ingizni kiriting",
+    "select_package": "Paketni tanlang",
+    "checkout": "To'lov",
+    "bonus": "BONUS",
+    "popular": "MASHHUR",
+    "order_tracking": "Buyurtma kuzatuvi"
+  },
+  "blog": {
+    "title": "Yangiliklar va Maqolalar",
+    "categories": {
+      "all": "Barchasi",
+      "news": "Yangiliklar",
+      "patch_notes": "Yangilanishlar",
+      "esports": "Esports",
+      "tips": "Maslahatlar",
+      "guides": "Qo'llanmalar"
+    },
+    "read_more": "Batafsil o'qish",
+    "min_read": "daqiqa o'qish"
+  },
+  "guides": {
+    "title": "PUBG Qo'llanmalar",
+    "categories": {
+      "sensitivity": "Sensitivity sozlamalari",
+      "rank_push": "Rang oshirish",
+      "weapons": "Qurollar",
+      "beginners": "Boshlang'ichlar uchun",
+      "advanced": "Ilg'or usullar",
+      "device": "Qurilma sozlamalari"
+    },
+    "difficulty": {
+      "beginner": "Oson",
+      "intermediate": "O'rtacha",
+      "advanced": "Qiyin"
+    }
+  },
+  "skins": {
+    "title": "PUBG Skinlar Galereyasi",
+    "search": "Skin qidirish...",
+    "categories": {
+      "outfit": "Kiyimlar",
+      "gun_skin": "Qurol skinlari",
+      "helmet": "Dubulg'a",
+      "backpack": "Ryukzak",
+      "parachute": "Parashyut",
+      "vehicle": "Transport",
+      "emote": "Emotsiyalar"
+    },
+    "rarity": {
+      "uncommon": "Oddiy",
+      "rare": "Kam uchraydigan",
+      "epic": "Epik",
+      "legendary": "Legendar",
+      "mythic": "Mifik",
+      "ultimate": "Ultimate"
+    }
+  },
+  "leaderboard": {
+    "title": "Reyting",
+    "top_sellers": "Top Sotuvchilar",
+    "top_players": "Top O'yinchilar",
+    "rank": "O'rin",
+    "player": "O'yinchi",
+    "sales": "Sotuvlar",
+    "rating": "Reyting"
+  },
+  "giveaways": {
+    "title": "Sovrinlar",
+    "enter": "Ishtirok etish",
+    "entered": "Ishtirok etildi",
+    "ends_in": "Tugashiga",
+    "winners": "G'oliblar",
+    "requirements": "Talablar",
+    "prize": "Sovrin"
+  },
+  "profile": {
+    "title": "Mening profilim",
+    "orders": "Buyurtmalar",
+    "wallet": "Hamyon",
+    "saved": "Saqlangan",
+    "settings": "Sozlamalar",
+    "sell": "Sotish"
+  },
+  "seller_dashboard": {
+    "title": "Sotuvchi Paneli",
+    "new_listing": "Yangi akkaunt qo'shish",
+    "my_listings": "Mening e'lonlarim",
+    "sales": "Sotuvlar",
+    "analytics": "Tahlil",
+    "earnings": "Daromad",
+    "withdraw": "Pul yechish"
+  },
+  "value_checker": {
+    "title": "Akkaunt Qiymatini Aniqlash",
+    "subtitle": "PUBG akkauntingiz taxminiy narxini biling",
+    "enter_details": "Ma'lumotlarni kiriting",
+    "estimate": "Qiymatni aniqlash",
+    "result": "Taxminiy qiymat"
+  },
+  "auth": {
+    "login": "Kirish",
+    "register": "Ro'yxatdan o'tish",
+    "email": "Email",
+    "password": "Parol",
+    "username": "Foydalanuvchi nomi",
+    "forgot_password": "Parolni unutdingizmi?",
+    "or_continue": "yoki davom eting",
+    "google": "Google orqali kirish",
+    "telegram": "Telegram orqali kirish"
+  },
+  "common": {
+    "loading": "Yuklanmoqda...",
+    "error": "Xato yuz berdi",
+    "success": "Muvaffaqiyatli",
+    "cancel": "Bekor qilish",
+    "save": "Saqlash",
+    "delete": "O'chirish",
+    "edit": "Tahrirlash",
+    "search": "Qidirish",
+    "filter": "Filter",
+    "all": "Barchasi",
+    "none": "Hech narsa",
+    "yes": "Ha",
+    "no": "Yo'q",
+    "close": "Yopish",
+    "confirm": "Tasdiqlash",
+    "back": "Orqaga",
+    "next": "Keyingisi",
+    "see_all": "Barchasini ko'rish",
+    "uzs": "so'm",
+    "usd": "USD",
+    "uc": "UC"
+  },
+  "seo": {
+    "site_name": "Shax PUBG Marketplace",
+    "home_title": "PUBG Akkaunt va UC Sotib Olish | Shax",
+    "home_desc": "O'zbekistondagi eng ishonchli PUBG Mobile akkaunt va UC savdo platformasi. Arzon narxda PUBG akkaunt sotib olish va UC to'ldirish.",
+    "marketplace_title": "PUBG Akkaunt Bozori — Sotib Olish va Sotish | Shax",
+    "uc_title": "Arzon PUBG UC | Shax UC Do'kon",
+    "blog_title": "PUBG Yangiliklar va Maqolalar | Shax",
+    "guides_title": "PUBG Qo'llanmalar — Sensitivity, Rang Oshirish | Shax"
+  }
+}

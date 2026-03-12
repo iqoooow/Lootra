@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Block admin area from indexing
+Disallow: /admin/
+Disallow: /api/
+Disallow: /uz/auth/
+Disallow: /en/auth/
+Disallow: /uz/checkout/
+Disallow: /en/checkout/
+Disallow: /uz/profile/
+Disallow: /en/profile/
+Disallow: /uz/seller-dashboard/
+Disallow: /en/seller-dashboard/
+
+# Crawl delay for bots
+Crawl-delay: 1
+
+Sitemap: https://shax.uz/sitemap.xml

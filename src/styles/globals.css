@@ -1,0 +1,387 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   SHAX PUBG MARKETPLACE — Global Styles
+   Dark gaming aesthetic with gold accents
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+/* CSS Custom Properties */
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-rajdhani: 'Rajdhani', sans-serif;
+
+  /* Spacing scale */
+  --nav-height: 64px;
+  --nav-height-mobile: 56px;
+
+  /* Transition defaults */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Scrollbar */
+  --scrollbar-width: 6px;
+  --scrollbar-track: #090918;
+  --scrollbar-thumb: #2a2a45;
+  --scrollbar-thumb-hover: #f5b800;
+}
+
+/* ============================================================
+   BASE LAYER
+   ============================================================ */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    @apply scroll-smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  body {
+    @apply bg-dark-950 text-white font-sans;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-width);
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-brand-500/30 text-brand-200;
+  }
+
+  /* Focus visible */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wide;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img, video {
+    @apply max-w-full;
+  }
+
+  a {
+    @apply transition-colors duration-150;
+  }
+
+  /* Remove number input arrows */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+/* ============================================================
+   COMPONENT LAYER
+   ============================================================ */
+
+@layer components {
+
+  /* --- Buttons --- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           font-semibold text-sm rounded-xl border border-transparent
+           transition-all duration-200 cursor-pointer select-none
+           disabled:opacity-50 disabled:cursor-not-allowed
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-500 text-dark-950 hover:bg-brand-400
+           shadow-glow-gold hover:shadow-glow-gold
+           focus-visible:outline-brand-500 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply btn bg-surface-overlay text-white border-surface-border
+           hover:bg-surface-overlay/80 hover:border-brand-500/50
+           focus-visible:outline-brand-500 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply btn text-dark-100 hover:text-white hover:bg-surface-overlay
+           focus-visible:outline-brand-500 active:scale-95;
+  }
+
+  .btn-danger {
+    @apply btn bg-accent-red text-white hover:bg-red-600
+           focus-visible:outline-red-500 active:scale-95;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs rounded-lg;
+  }
+
+  .btn-lg {
+    @apply px-7 py-3.5 text-base rounded-2xl;
+  }
+
+  .btn-xl {
+    @apply px-10 py-4 text-lg rounded-2xl;
+  }
+
+  /* --- Cards --- */
+  .card {
+    @apply bg-surface-raised border border-surface-border rounded-2xl
+           shadow-card transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:border-brand-500/30 hover:shadow-card-hover
+           hover:-translate-y-1 cursor-pointer;
+  }
+
+  .card-glow {
+    @apply card hover:border-brand-500/50 hover:shadow-glow-gold;
+  }
+
+  /* --- Input --- */
+  .input {
+    @apply w-full bg-surface-overlay border border-surface-border rounded-xl
+           px-4 py-3 text-white placeholder:text-dark-300
+           focus:outline-none focus:border-brand-500/60 focus:ring-1 focus:ring-brand-500/30
+           transition-all duration-200 text-sm;
+  }
+
+  .input-sm {
+    @apply input px-3 py-2 text-xs rounded-lg;
+  }
+
+  /* --- Badge --- */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full
+           text-xs font-semibold uppercase tracking-wide;
+  }
+
+  .badge-gold {
+    @apply badge bg-brand-500/20 text-brand-400 border border-brand-500/30;
+  }
+
+  .badge-blue {
+    @apply badge bg-accent-blue/20 text-accent-blue border border-accent-blue/30;
+  }
+
+  .badge-purple {
+    @apply badge bg-accent-purple/20 text-accent-purple border border-accent-purple/30;
+  }
+
+  .badge-green {
+    @apply badge bg-accent-green/20 text-accent-green border border-accent-green/30;
+  }
+
+  .badge-red {
+    @apply badge bg-accent-red/20 text-accent-red border border-accent-red/30;
+  }
+
+  /* --- Rank badge --- */
+  .rank-conqueror { @apply badge-gold animate-pulse-gold; }
+  .rank-ace       { @apply badge bg-red-500/20 text-red-400 border border-red-500/30; }
+  .rank-diamond   { @apply badge bg-cyan-500/20 text-cyan-400 border border-cyan-500/30; }
+  .rank-crown     { @apply badge bg-purple-500/20 text-purple-400 border border-purple-500/30; }
+  .rank-platinum  { @apply badge bg-teal-500/20 text-teal-400 border border-teal-500/30; }
+  .rank-gold      { @apply badge-gold; }
+  .rank-silver    { @apply badge bg-gray-400/20 text-gray-300 border border-gray-400/30; }
+  .rank-bronze    { @apply badge bg-orange-800/20 text-orange-400 border border-orange-800/30; }
+
+  /* --- Section heading --- */
+  .section-title {
+    @apply text-2xl md:text-3xl lg:text-4xl font-display font-bold
+           text-white tracking-wide;
+  }
+
+  .section-subtitle {
+    @apply text-dark-200 text-sm md:text-base mt-2;
+  }
+
+  .section-divider {
+    @apply w-16 h-1 bg-gold-gradient rounded-full mt-3 mb-6;
+  }
+
+  /* --- Container --- */
+  .container-page {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* --- Skeleton loader --- */
+  .skeleton {
+    @apply bg-surface-overlay rounded-xl animate-pulse
+           bg-gradient-to-r from-surface-overlay via-surface-border to-surface-overlay
+           bg-[length:200%_100%] animate-shimmer;
+  }
+
+  /* --- Shimmer effect --- */
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+  .shimmer::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent
+           -translate-x-full animate-shimmer;
+  }
+
+  /* --- Gradient text --- */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-brand-600;
+  }
+
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-accent-purple;
+  }
+
+  /* --- Scrollable container --- */
+  .scroll-x {
+    @apply overflow-x-auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+
+  /* --- Divider --- */
+  .divider {
+    @apply border-t border-surface-border my-6;
+  }
+
+  /* --- Nav link --- */
+  .nav-link {
+    @apply text-dark-200 hover:text-white font-medium text-sm
+           transition-colors duration-150 relative;
+  }
+
+  .nav-link-active {
+    @apply text-brand-400;
+  }
+
+  /* --- Glass card --- */
+  .glass {
+    @apply backdrop-blur-md bg-dark-900/60 border border-white/5;
+  }
+
+  /* --- Price tag --- */
+  .price-tag {
+    @apply text-brand-400 font-bold font-display tracking-wide;
+  }
+
+  /* --- Star rating --- */
+  .star-filled { @apply text-brand-500; }
+  .star-empty  { @apply text-dark-400; }
+}
+
+/* ============================================================
+   UTILITY LAYER
+   ============================================================ */
+
+@layer utilities {
+  /* Clamp text */
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* Aspect ratios */
+  .aspect-card  { aspect-ratio: 4/3; }
+  .aspect-hero  { aspect-ratio: 16/9; }
+  .aspect-thumb { aspect-ratio: 1/1; }
+
+  /* Safe area padding (mobile) */
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+  .pt-safe { padding-top: env(safe-area-inset-top); }
+
+  /* Prevent layout shift */
+  .no-shift { contain: layout; }
+
+  /* GPU acceleration */
+  .gpu { transform: translateZ(0); will-change: transform; }
+
+  /* Noise texture overlay */
+  .noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Glow text */
+  .glow-text-gold {
+    text-shadow: 0 0 20px rgba(245, 184, 0, 0.5);
+  }
+
+  .glow-text-blue {
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  }
+}
+
+/* ============================================================
+   SPECIFIC COMPONENT OVERRIDES
+   ============================================================ */
+
+/* Swiper (slider) */
+.swiper-pagination-bullet {
+  @apply bg-dark-400 opacity-100 !important;
+}
+.swiper-pagination-bullet-active {
+  @apply bg-brand-500 !important;
+  width: 24px !important;
+  border-radius: 4px !important;
+}
+
+/* Radix UI overrides */
+[data-radix-popper-content-wrapper] {
+  z-index: 100 !important;
+}
+
+/* Rich text content */
+.prose-gaming {
+  @apply prose prose-invert prose-sm md:prose-base max-w-none;
+  --tw-prose-body: theme('colors.dark.100');
+  --tw-prose-headings: theme('colors.white');
+  --tw-prose-links: theme('colors.brand.400');
+  --tw-prose-bold: theme('colors.white');
+  --tw-prose-code: theme('colors.accent.blue');
+  --tw-prose-quotes: theme('colors.dark.200');
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease, transform 300ms ease;
+}

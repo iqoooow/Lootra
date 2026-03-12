@@ -1,0 +1,229 @@
+{
+  "nav": {
+    "home": "Home",
+    "marketplace": "Marketplace",
+    "ucStore": "UC Store",
+    "blog": "Blog",
+    "guides": "Guides",
+    "skins": "Skins",
+    "leaderboard": "Leaderboard",
+    "giveaways": "Giveaways",
+    "login": "Login",
+    "register": "Sign Up",
+    "profile": "Profile",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "admin": "Admin Panel",
+    "support": "Support",
+    "more": "More"
+  },
+  "home": {
+    "hero": {
+      "title": "PUBG Mobile Account",
+      "titleHighlight": "Marketplace",
+      "subtitle": "Uzbekistan's most trusted platform for buying and selling PUBG Mobile accounts and UC",
+      "cta_primary": "Browse Accounts",
+      "cta_secondary": "Buy UC",
+      "stats": {
+        "accounts": "Accounts",
+        "users": "Users",
+        "trades": "Successful Trades",
+        "sellers": "Verified Sellers"
+      }
+    },
+    "featured_accounts": "Featured Accounts",
+    "uc_promo": "UC Offers",
+    "latest_blog": "Latest News",
+    "popular_guides": "Popular Guides",
+    "how_it_works": "How It Works",
+    "why_us": "Why Choose Us?"
+  },
+  "marketplace": {
+    "title": "PUBG Account Marketplace",
+    "subtitle": "Buy PUBG Mobile Account — best accounts at lowest prices",
+    "filters": {
+      "rank": "Rank",
+      "min_price": "Min Price",
+      "max_price": "Max Price",
+      "level": "Level",
+      "server": "Server",
+      "sort": "Sort By",
+      "reset": "Reset",
+      "apply": "Apply"
+    },
+    "sort_options": {
+      "newest": "Newest First",
+      "price_asc": "Price: Low to High",
+      "price_desc": "Price: High to Low",
+      "rank_desc": "Highest Rank",
+      "popular": "Most Popular"
+    },
+    "no_results": "No accounts found",
+    "load_more": "Load More",
+    "instant_buy": "Buy Now",
+    "make_offer": "Make Offer",
+    "add_favorite": "Save",
+    "view_details": "View Details"
+  },
+  "account": {
+    "rank": "Rank",
+    "level": "Level",
+    "uc_balance": "UC Balance",
+    "skins": "Skins",
+    "legendaries": "Legendaries",
+    "server": "Server",
+    "seller": "Seller",
+    "seller_rating": "Seller Rating",
+    "verified": "Verified",
+    "buy_now": "Buy Now",
+    "contact_seller": "Contact Seller",
+    "report": "Report",
+    "share": "Share",
+    "similar": "Similar Accounts"
+  },
+  "uc_store": {
+    "title": "UC Store",
+    "subtitle": "Cheap PUBG UC — instant delivery",
+    "your_pubg_id": "Enter your PUBG ID",
+    "select_package": "Select Package",
+    "checkout": "Checkout",
+    "bonus": "BONUS",
+    "popular": "POPULAR",
+    "order_tracking": "Order Tracking"
+  },
+  "blog": {
+    "title": "News & Articles",
+    "categories": {
+      "all": "All",
+      "news": "News",
+      "patch_notes": "Patch Notes",
+      "esports": "Esports",
+      "tips": "Tips",
+      "guides": "Guides"
+    },
+    "read_more": "Read More",
+    "min_read": "min read"
+  },
+  "guides": {
+    "title": "PUBG Guides",
+    "categories": {
+      "sensitivity": "Sensitivity Settings",
+      "rank_push": "Rank Push",
+      "weapons": "Weapons",
+      "beginners": "For Beginners",
+      "advanced": "Advanced",
+      "device": "Device Settings"
+    },
+    "difficulty": {
+      "beginner": "Easy",
+      "intermediate": "Medium",
+      "advanced": "Hard"
+    }
+  },
+  "skins": {
+    "title": "PUBG Skins Gallery",
+    "search": "Search skins...",
+    "categories": {
+      "outfit": "Outfits",
+      "gun_skin": "Gun Skins",
+      "helmet": "Helmets",
+      "backpack": "Backpacks",
+      "parachute": "Parachutes",
+      "vehicle": "Vehicles",
+      "emote": "Emotes"
+    },
+    "rarity": {
+      "uncommon": "Uncommon",
+      "rare": "Rare",
+      "epic": "Epic",
+      "legendary": "Legendary",
+      "mythic": "Mythic",
+      "ultimate": "Ultimate"
+    }
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "top_sellers": "Top Sellers",
+    "top_players": "Top Players",
+    "rank": "Rank",
+    "player": "Player",
+    "sales": "Sales",
+    "rating": "Rating"
+  },
+  "giveaways": {
+    "title": "Giveaways",
+    "enter": "Enter Giveaway",
+    "entered": "Entered",
+    "ends_in": "Ends in",
+    "winners": "Winners",
+    "requirements": "Requirements",
+    "prize": "Prize"
+  },
+  "profile": {
+    "title": "My Profile",
+    "orders": "Orders",
+    "wallet": "Wallet",
+    "saved": "Saved",
+    "settings": "Settings",
+    "sell": "Sell Account"
+  },
+  "seller_dashboard": {
+    "title": "Seller Dashboard",
+    "new_listing": "New Listing",
+    "my_listings": "My Listings",
+    "sales": "Sales",
+    "analytics": "Analytics",
+    "earnings": "Earnings",
+    "withdraw": "Withdraw"
+  },
+  "value_checker": {
+    "title": "Account Value Checker",
+    "subtitle": "Estimate your PUBG account's worth",
+    "enter_details": "Enter Account Details",
+    "estimate": "Estimate Value",
+    "result": "Estimated Value"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "username": "Username",
+    "forgot_password": "Forgot password?",
+    "or_continue": "or continue with",
+    "google": "Continue with Google",
+    "telegram": "Continue with Telegram"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "none": "None",
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "see_all": "See All",
+    "uzs": "UZS",
+    "usd": "USD",
+    "uc": "UC"
+  },
+  "seo": {
+    "site_name": "Shax PUBG Marketplace",
+    "home_title": "Buy PUBG Account & UC | Shax",
+    "home_desc": "Uzbekistan's most trusted PUBG Mobile account and UC trading platform. Buy cheap PUBG accounts and UC instantly.",
+    "marketplace_title": "PUBG Account Marketplace — Buy & Sell | Shax",
+    "uc_title": "Cheap PUBG UC | Shax UC Store",
+    "blog_title": "PUBG News & Articles | Shax",
+    "guides_title": "PUBG Guides — Sensitivity, Rank Push | Shax"
+  }
+}
