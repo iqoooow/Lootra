@@ -3,47 +3,65 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff, LogIn, Zap } from 'lucide-react';
 import { useSupabase } from '@/hooks/useSupabase';
 import { cn } from '@/utils/cn';
 import type { Locale } from '@/i18n/request';
 
+function getRoleDashboard(role: string, locale: string): string {
+  switch (role) {
+    case 'admin':     return '/admin/dashboard';
+    case 'moderator': return '/moderator/dashboard';
+    case 'seller':    return `/${locale}/seller-dashboard`;
+    default:          return `/${locale}/dashboard`;
+  }
+}
+
 export default function LoginPage({ params: { locale } }: { params: { locale: Locale } }) {
-  const t = useTranslations('auth');
   const router = useRouter();
   const searchParams = useSearchParams();
   const { supabase } = useSupabase();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail]             = useState('');
+  const [password, setPassword]       = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [loading, setLoading]         = useState(false);
+  const [error, setError]             = useState('');
 
-  const redirect = searchParams.get('redirect') ?? `/${locale}`;
+  const redirect = searchParams.get('redirect');
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { data, error: authError } = await supabase.auth.signInWithPassword({ email, password });
 
-    if (error) {
+    if (authError || !data.user) {
       setError(locale === 'uz' ? 'Email yoki parol noto\'g\'ri' : 'Invalid email or password');
       setLoading(false);
-    } else {
-      router.push(redirect);
-      router.refresh();
+      return;
     }
+
+    // Fetch role for redirect
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', data.user.id)
+      .single();
+
+    const destination = redirect ?? getRoleDashboard(profile?.role ?? 'user', locale);
+    router.push(destination);
+    router.refresh();
   };
 
   const handleGoogle = async () => {
     await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: `${window.location.origin}/auth/callback?next=${redirect}` },
+      options: {
+        redirectTo: `${window.location.origin}/${locale}/auth/callback?next=${redirect ?? ''}`,
+      },
     });
   };
 

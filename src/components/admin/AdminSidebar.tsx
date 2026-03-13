@@ -4,23 +4,27 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   LayoutDashboard, Users, ShoppingBag, Package, BookOpen,
-  Gift, Zap, BarChart2, Settings, MessageSquare, Shield, Image
+  Gift, Zap, BarChart2, Settings, MessageSquare, Shield, Image,
+  Flag, Store, Megaphone
 } from 'lucide-react';
 import { cn } from '@/utils/cn';
 
 const navItems = [
-  { href: '/admin', icon: LayoutDashboard, label: 'Dashboard', exact: true },
-  { href: '/admin/users', icon: Users, label: 'Users' },
-  { href: '/admin/accounts', icon: ShoppingBag, label: 'Accounts' },
-  { href: '/admin/orders', icon: Package, label: 'Orders' },
-  { href: '/admin/uc-packages', icon: Zap, label: 'UC Packages' },
-  { href: '/admin/blog', icon: BookOpen, label: 'Blog Posts' },
-  { href: '/admin/guides', icon: Shield, label: 'Guides' },
-  { href: '/admin/skins', icon: Image, label: 'Skins' },
-  { href: '/admin/giveaways', icon: Gift, label: 'Giveaways' },
-  { href: '/admin/tickets', icon: MessageSquare, label: 'Support' },
-  { href: '/admin/analytics', icon: BarChart2, label: 'Analytics' },
-  { href: '/admin/settings', icon: Settings, label: 'Settings' },
+  { href: '/admin/dashboard', icon: LayoutDashboard, label: 'Dashboard', exact: true },
+  { href: '/admin/users',       icon: Users,       label: 'Users' },
+  { href: '/admin/sellers',     icon: Store,       label: 'Sellers' },
+  { href: '/admin/accounts',    icon: ShoppingBag, label: 'Accounts' },
+  { href: '/admin/orders',      icon: Package,     label: 'Orders' },
+  { href: '/admin/uc-packages', icon: Zap,         label: 'UC Packages' },
+  { href: '/admin/ads',         icon: Megaphone,   label: 'Ad Banners' },
+  { href: '/admin/blog',        icon: BookOpen,    label: 'Blog Posts' },
+  { href: '/admin/guides',      icon: Shield,      label: 'Guides' },
+  { href: '/admin/skins',       icon: Image,       label: 'Skins' },
+  { href: '/admin/giveaways',   icon: Gift,        label: 'Giveaways' },
+  { href: '/admin/reports',     icon: Flag,        label: 'Reports' },
+  { href: '/admin/tickets',     icon: MessageSquare, label: 'Support' },
+  { href: '/admin/analytics',   icon: BarChart2,   label: 'Analytics' },
+  { href: '/admin/settings',    icon: Settings,    label: 'Settings' },
 ];
 
 export function AdminSidebar({ profile }: { profile: any }) {

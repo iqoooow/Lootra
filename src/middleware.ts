@@ -9,24 +9,47 @@ const intlMiddleware = createMiddleware({
   localePrefix: 'always',
 });
 
-// Old localized slugs → new canonical paths (301 redirect)
+// Old localized slugs → canonical paths (301 redirect)
 const legacyRedirects: Record<string, string> = {
   'pubg-akkaunt-sotib-olish': 'marketplace',
-  'buy-pubg-account': 'marketplace',
-  'uc-sotib-olish': 'uc-store',
-  'buy-uc': 'uc-store',
-  'yangiliklar': 'blog',
-  'qollanmalar': 'guides',
-  'skinlar': 'skins',
-  'reyting': 'leaderboard',
-  'sovrinlar': 'giveaways',
-  'akkaunt-qiymati': 'account-value-checker',
+  'buy-pubg-account':         'marketplace',
+  'uc-sotib-olish':           'uc-store',
+  'buy-uc':                   'uc-store',
+  'yangiliklar':              'blog',
+  'qollanmalar':              'guides',
+  'skinlar':                  'skins',
+  'reyting':                  'leaderboard',
+  'sovrinlar':                'giveaways',
+  'akkaunt-qiymati':          'account-value-checker',
 };
+
+// Routes that require the user to be logged in (locale-prefixed)
+const AUTH_REQUIRED_ROUTES = [
+  '/profile',
+  '/dashboard',
+  '/seller-dashboard',
+  '/orders',
+  '/checkout',
+];
+
+// Routes that require role = 'admin' only
+const ADMIN_ROUTES = ['/admin'];
+
+// Routes that require role = 'moderator' only
+const MODERATOR_ROUTES = ['/moderator'];
 
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
+  const pathname = req.nextUrl.pathname;
 
-  // Create supabase client for auth check
+  // ── 1. Legacy slug redirects ────────────────────────────────
+  const segments = pathname.split('/'); // ['', 'uz', 'slug', ...]
+  if (segments.length >= 3 && legacyRedirects[segments[2]]) {
+    segments[2] = legacyRedirects[segments[2]];
+    return NextResponse.redirect(new URL(segments.join('/'), req.url), 301);
+  }
+
+  // ── 2. Create Supabase client (read-only for auth check) ─────
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -45,56 +68,44 @@ export async function middleware(req: NextRequest) {
     }
   );
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+  const { data: { session } } = await supabase.auth.getSession();
+  const locale = segments[1] || defaultLocale;
 
-  const pathname = req.nextUrl.pathname;
-
-  // Redirect legacy localized slugs to canonical paths
-  const segments = pathname.split('/'); // ['', 'uz', 'pubg-akkaunt-sotib-olish']
-  if (segments.length >= 3 && legacyRedirects[segments[2]]) {
-    segments[2] = legacyRedirects[segments[2]];
-    return NextResponse.redirect(new URL(segments.join('/'), req.url), 301);
+  // ── 3. Admin routes → require admin role ───────────────────
+  if (ADMIN_ROUTES.some((r) => pathname.startsWith(r))) {
+    if (!session) {
+      return NextResponse.redirect(new URL(`/uz/auth/login?redirect=${encodeURIComponent(pathname)}`, req.url));
+    }
+    // Role check is enforced server-side in /admin/layout.tsx
+    return res;
   }
 
-  // Protected routes (require auth)
-  const protectedRoutes = [
-    '/profile',
-    '/seller-dashboard',
-    '/orders',
-    '/checkout',
-  ];
+  // ── 4. Moderator routes → require moderator role ───────────
+  if (MODERATOR_ROUTES.some((r) => pathname.startsWith(r))) {
+    if (!session) {
+      return NextResponse.redirect(new URL(`/uz/auth/login?redirect=${encodeURIComponent(pathname)}`, req.url));
+    }
+    // Role check enforced in /moderator/layout.tsx
+    return res;
+  }
 
-  // Admin routes
-  const adminRoutes = ['/admin'];
-
-  const isProtected = protectedRoutes.some((route) =>
+  // ── 5. Protected locale routes → require login ─────────────
+  const isProtected = AUTH_REQUIRED_ROUTES.some((route) =>
     pathname.includes(route)
   );
-  const isAdmin = adminRoutes.some((route) => pathname.includes(route));
 
   if (isProtected && !session) {
-    const locale = pathname.split('/')[1] || defaultLocale;
     return NextResponse.redirect(
       new URL(`/${locale}/auth/login?redirect=${encodeURIComponent(pathname)}`, req.url)
     );
   }
 
-  if (isAdmin) {
-    if (!session) {
-      return NextResponse.redirect(new URL('/uz/auth/login', req.url));
-    }
-    // Role check happens in the page component with server-side query
-  }
-
-  // Run i18n middleware
+  // ── 6. Run i18n middleware for all other routes ─────────────
   return intlMiddleware(req);
 }
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
     '/((?!_next/static|_next/image|favicon|robots.txt|sitemap.xml|site.webmanifest|android-chrome|apple-touch-icon|.*\\.png$|.*\\.ico$|.*\\.svg$|.*\\.jpg$|.*\\.webp$|images|icons|fonts).*)',
   ],
 };
